@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__array-back">
+      <button class="array-back__btn">
+        <img
+          src="assets/images/add-project/arrow-back.svg"
+          alt="arrow-back"
+          class="array-back__img"
+        />
+      </button>
+    </div>
+    <h2>Add Project</h2>
+    <div class="header__notification">
+      <mat-icon
+        matBadge="15"
+        matBadgeColor="warn"
+        mat-raised-button
+        [matBadgeHidden]="hidden"
+        (click)="toggleBadgeVisibility()"
+      >
+        <img src="assets/images/add-project/notification.svg" alt="ring" />
+      </mat-icon>
+    </div>
+  </div>
+</header>
