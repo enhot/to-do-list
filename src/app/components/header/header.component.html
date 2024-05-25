@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__container">
     <div class="header__array-back">
-      <button class="array-back__btn">
+      <button routerLink="/" class="array-back__btn">
         <img
           src="assets/images/add-project/arrow-back.svg"
           alt="arrow-back"
@@ -15,6 +15,7 @@
         matBadge="15"
         matBadgeColor="warn"
         mat-raised-button
+        aria-hidden="false"
         [matBadgeHidden]="hidden"
         (click)="toggleBadgeVisibility()"
       >

@@ -1,3 +1,81 @@
 <section>
   <app-header></app-header>
+
+  <div class="add-project__container">
+    <form [formGroup]="taskGroup" class="add-project__form">
+      <mat-form-field class="select-group__mat-form">
+        <mat-label>Task Group</mat-label>
+        <mat-select>
+          @for (item of taskList; track $index) {
+          <mat-option class="options" [value]="item">
+            <mat-icon>
+              <img src="assets/images/add-project/work.svg" alt="work"
+            /></mat-icon>
+            {{ item }}</mat-option
+          >
+          }
+        </mat-select>
+      </mat-form-field>
+      <!--/////////////////////////////////////-->
+      <mat-form-field class="project-name__input-field">
+        <mat-label>Project Name</mat-label>
+        <input
+          formControlName="projectName"
+          matInput
+          type="text"
+          [(ngModel)]="projectName"
+        />
+        @if (projectName) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="projectName = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+
+      <!--/////////////////////-->
+      <div class="project-name__description">
+        <mat-form-field class="description__textArea">
+          <mat-label>Description</mat-label>
+          <textarea
+            formControlName="description"
+            matInput
+            placeholder="I do something"
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <!--///////////////////////////-->
+      <div class="project-name__first-date">
+        <mat-form-field class="first-date__start">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="start" />
+          <mat-datepicker-toggle matIconSuffix [for]="start">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <!--///////////////////////////-->
+      <div class="project-name__last-date">
+        <mat-form-field class="first-date__start">
+          <mat-label>End Date</mat-label>
+          <input matInput [matDatepicker]="end" />
+          <mat-datepicker-toggle matIconSuffix [for]="end">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #end></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <button routerLink="/addProject" class="add-project__form-btn btn">
+        Let’s Start
+      </button>
+    </form>
+  </div>
 </section>
