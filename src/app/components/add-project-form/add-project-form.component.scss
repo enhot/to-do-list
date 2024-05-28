@@ -1,0 +1,17 @@
+@import "../../../assets/styles-and-fonts/another.scss";
+.add-project__block {
+}
+.select-group {
+}
+.add-project__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.add-project__form-btn {
+  margin-top: 20px;
+}

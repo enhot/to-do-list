@@ -1,0 +1,38 @@
+@import "../../../assets/styles-and-fonts/another.scss";
+:host {
+  width: 100%;
+  background-color: rgba(188, 185, 228, 0.897);
+  border-radius: 10px;
+  padding: 10px 0 10px 0;
+}
+.footer {
+}
+.footer__container {
+  position: relative;
+  overflow: visible;
+}
+.footer__plus {
+  position: absolute;
+  overflow: visible;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.plus__img {
+  width: 45px;
+  display: block;
+  object-fit: fill; /* This ensures the image scales down to fit its container without being cropped */
+}
+.footer__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.list__item {
+}
+.item__link {
+}
+.item__img {
+}

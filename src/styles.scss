@@ -41,3 +41,10 @@ $to-do-list-theme: mat.define-light-theme(
 
 @import "./assets/styles-and-fonts/reset-style.scss";
 @import "./assets/styles-and-fonts/fonts.scss";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
