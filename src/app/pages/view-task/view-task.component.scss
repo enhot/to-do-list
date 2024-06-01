@@ -1,3 +1,46 @@
 @import "../../../assets/styles-and-fonts/another.scss";
 
-/* Стили для :host */
+.view-task__container {
+}
+.progress-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $buttonColor;
+  border-radius: 10px;
+  padding: 10px 0px 10px 20px;
+}
+.progress-task__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  font-size: 20px;
+}
+.progress-task__span {
+  color: #fff;
+}
+.progress-task__btn {
+  border: none;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: $buttonColor;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.progress-task__mat-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 130px !important;
+  position: relative;
+  z-index: 1;
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}

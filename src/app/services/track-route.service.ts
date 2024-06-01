@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router, NavigationEnd, Event } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -6,14 +6,13 @@ import { filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class RouteService implements OnInit {
-  private currentRoute: BehaviorSubject<string> = new BehaviorSubject<string>(
-    ''
-  );
+export class RouteService {
+  private currentRoute = new BehaviorSubject<string>('');
   currentRoute$ = this.currentRoute.asObservable();
 
   constructor(private router: Router) {}
-  ngOnInit(): void {
+
+  init() {
     this.router.events
       .pipe(
         filter(

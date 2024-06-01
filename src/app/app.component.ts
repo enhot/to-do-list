@@ -14,11 +14,17 @@ import { RouteService } from './services/track-route.service';
 export class AppComponent implements OnInit {
   public currentRoute!: string;
 
-  constructor(private trackRouteService: RouteService) {}
+  constructor(private routeService: RouteService) {}
+
   ngOnInit(): void {
-    this.trackRouteService.currentRoute$.subscribe(
-      (data) => (this.currentRoute = data)
-    );
+    // Инициализация RouteService
+    this.routeService.init();
+
+    // Подписка на изменения текущего маршрута
+    this.routeService.currentRoute$.subscribe((data) => {
+      this.currentRoute = data;
+      console.log('Current Route:', this.currentRoute); // Для отладки
+    });
   }
 
   shouldShowHeader(): boolean {

@@ -1,0 +1,73 @@
+@import "../../../assets/styles-and-fonts/another.scss";
+
+.view-task__task-group {
+  max-height: 250px;
+  height: 100vh;
+  overflow: hidden;
+}
+.task-group__list {
+  max-height: 200px;
+  overflow-y: auto; /* Добавьте прокрутку по вертикали */
+  list-style-type: none; /* Уберите стандартные маркеры списка */
+  padding-bottom: 80px; /* Уберите внутренние отступы списка */
+  margin: 0; /* Уберите внешние отступы списка */
+  ::-webkit-scrollbar {
+    width: 0px; /* Устанавливает ширину полосы прокрутки в 0 */
+    background: transparent; /* Делаем фон прозрачным */
+  }
+}
+/* Скрываем полосу прокрутки в Firefox */
+.task-group__list {
+  scrollbar-width: none; /* Скрываем полосу прокрутки */
+}
+
+/* Скрываем полосу прокрутки в IE и Edge */
+.task-group__list {
+  -ms-overflow-style: none; /* Скрываем полосу прокрутки */
+}
+
+.task-group__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  :not(:first-child) {
+    margin-top: 5px;
+  }
+}
+.item__img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.item__block-info {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  span:first-child {
+    font-size: 12px;
+    color: $colorSpanParag;
+  }
+}
+.item__mat-content {
+  margin-left: auto;
+  position: relative;
+  z-index: 1;
+  right: 0;
+}
+.item__spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item__span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 10px;
+}

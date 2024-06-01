@@ -1,3 +1,25 @@
 <section>
-  <div class="view-task__container">heeloo</div>
+  <div class="view-task__container">
+    <div class="view-task__block-progress progress-task">
+      <div class="progress-task__block">
+        <span class="progress-task__span">Your today`s task</span>
+        <button class="progress-task__btn">View Task</button>
+      </div>
+      <mat-card-content class="progress-task__mat-content">
+        <mat-progress-spinner
+          class="mat-content__spinner"
+          [color]="color"
+          [mode]="mode"
+          [value]="value"
+          diameter="80"
+        >
+        </mat-progress-spinner>
+        <span>{{ value }}%</span>
+      </mat-card-content>
+    </div>
+
+    <app-slide-progress></app-slide-progress>
+
+    <app-task-group></app-task-group>
+  </div>
 </section>
