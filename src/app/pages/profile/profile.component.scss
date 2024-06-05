@@ -1,0 +1,22 @@
+@import "../../../assets/styles-and-fonts/another.scss";
+.profile {
+  position: relative;
+  height: 100vh;
+}
+.profile__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.profile__title {
+}
+.profile__register-form {
+}
+.register-form__btn-login {
+  margin-top: 10px;
+}

@@ -1,0 +1,40 @@
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="sendFormRegister()"
+  class="register-form"
+>
+  <mat-form-field class="register-form__input">
+    <mat-label>Login Name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="loginFormControl"
+      placeholder="Alice"
+    />
+    @if ( registerForm.controls['loginFormControl'].hasError('required')) {
+    <mat-error>Please enter a login</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="register-form__input">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="emailFormControl"
+      placeholder="Ex. pat@example.com"
+    />
+    @if (registerForm.controls['emailFormControl'].hasError('email') ||
+    registerForm.controls['emailFormControl'].hasError('required')) {
+    <mat-error>Please enter a valid email address</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="register-form__input">
+    <mat-label>Passwod</mat-label>
+    <input type="text" matInput formControlName="passwordFormControl" />
+    @if ( registerForm.controls['passwordFormControl'].hasError('required')) {
+    <mat-error>Please enter a password</mat-error>
+    }
+  </mat-form-field>
+  <button type="submit" class="register-form__btn btn">Register</button>
+</form>

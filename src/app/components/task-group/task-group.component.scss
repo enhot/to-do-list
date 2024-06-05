@@ -24,6 +24,9 @@
 /* Скрываем полосу прокрутки в IE и Edge */
 .task-group__list {
   -ms-overflow-style: none; /* Скрываем полосу прокрутки */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .task-group__item {
@@ -33,9 +36,6 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 10px 20px;
-  :not(:first-child) {
-    margin-top: 5px;
-  }
 }
 .item__img {
   display: block;

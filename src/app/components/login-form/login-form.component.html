@@ -1,0 +1,32 @@
+<form
+  [formGroup]="loginForm"
+  class="login-form"
+  action=""
+  (ngSubmit)="sendLogin()"
+>
+  <mat-form-field class="login-form__input">
+    <mat-label>Login Name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="loginFormControl"
+      placeholder="Alice"
+    />
+    @if ( loginForm.controls['loginFormControl'].hasError('required')) {
+    <mat-error>Please enter a login</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="login-form__input">
+    <mat-label>Password</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="passwordFormControl"
+      placeholder="Alice"
+    />
+    @if ( loginForm.controls['passwordFormControl'].hasError('required')) {
+    <mat-error>Please enter a login</mat-error>
+    }
+  </mat-form-field>
+  <button type="submit" class="login-form__btn-login btn">Log`in</button>
+</form>
