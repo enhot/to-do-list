@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { SlideProgressComponent } from '../../components/slide-progress/slide-progress.component';
 import { TaskGroupComponent } from '../../components/task-group/task-group.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-task',
@@ -25,6 +26,7 @@ import { TaskGroupComponent } from '../../components/task-group/task-group.compo
     CommonModule,
     SlideProgressComponent,
     TaskGroupComponent,
+    HttpClientModule,
   ],
   templateUrl: './view-task.component.html',
   styleUrl: './view-task.component.scss',

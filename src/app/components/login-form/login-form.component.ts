@@ -1,5 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -9,6 +8,13 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
+import { GetLoginUserService } from '../../services/get-login-user.service';
+import { RegisterUserService } from '../../services/register-user.service';
+import { RegisterForm } from '../../interfaces/register-form';
+import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -19,19 +25,49 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
+  providers: [HttpClientModule, GetLoginUserService, RegisterUserService],
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit, OnDestroy {
   public loginForm!: FormGroup;
+  public getUserData: RegisterForm[] = [];
+  private subscriptions: Subscription = new Subscription();
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private signInService: GetLoginUserService,
+    private registerUserServer: RegisterUserService
+  ) {
     this.loginForm = new FormGroup({
       loginFormControl: new FormControl('', [Validators.required]),
-
       passwordFormControl: new FormControl('', [Validators.required]),
     });
   }
-  public sendLogin() {}
+
+  ngOnInit(): void {
+    const userSubscription = this.registerUserServer
+      .getUserData()
+      .subscribe((users) => {
+        if (users.length > 0) {
+          this.getUserData = users;
+          console.log(this.getUserData);
+        }
+      });
+    this.subscriptions.add(userSubscription);
+  }
+
+  public signIn(): void {
+    let login = this.loginForm.get('loginFormControl')?.value;
+    let password = this.loginForm.get('passwordFormControl')?.value;
+    if (this.loginForm.valid) {
+      this.signInService.checkUser(login, password);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
 }

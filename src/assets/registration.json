@@ -1,40 +1,28 @@
 {
   "registrations": [
     {
-      "id": "99e0",
-      "loginFormControl": "sds",
-      "emailFormControl": "W2@das",
-      "passwordFormControl": "222"
+      "id": "c007",
+      "loginFormControl": "Lora",
+      "emailFormControl": "email@sor.com",
+      "passwordFormControl": "1234"
     },
     {
-      "id": "b7be",
-      "loginFormControl": "",
-      "emailFormControl": "sds@dsa",
-      "passwordFormControl": ""
+      "id": "32e5",
+      "loginFormControl": "Bob",
+      "emailFormControl": "ews@sds.com",
+      "passwordFormControl": "12345"
     },
     {
-      "id": "1410",
-      "loginFormControl": "ds",
-      "emailFormControl": "sd@dsa",
-      "passwordFormControl": "2ds"
+      "id": "ee5a",
+      "loginFormControl": "Ava",
+      "emailFormControl": "we@sds.com",
+      "passwordFormControl": "5555"
     },
     {
-      "id": "43fb",
-      "loginFormControl": "",
-      "emailFormControl": "",
-      "passwordFormControl": ""
-    },
-    {
-      "id": "bef5",
-      "loginFormControl": "",
-      "emailFormControl": "",
-      "passwordFormControl": ""
-    },
-    {
-      "id": "c121",
-      "loginFormControl": "",
-      "emailFormControl": "",
-      "passwordFormControl": ""
+      "id": "dae9",
+      "loginFormControl": "Bobo",
+      "emailFormControl": "ese@mail.com",
+      "passwordFormControl": "1234sss"
     }
   ]
 }

@@ -35,7 +35,7 @@ import { SendProjectFormService } from '../../services/send-project-form.service
 export class TaskGroupComponent {
   color: ThemePalette = 'accent';
   mode: ProgressSpinnerMode = 'determinate';
-  value = 100;
+  value = 10;
   constructor(private taskForm: ProjectFormService) {}
 
   public get taskList(): TaskListInterface[] {
