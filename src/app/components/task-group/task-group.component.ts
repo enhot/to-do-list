@@ -14,6 +14,12 @@ import { BgTaskFormDirective } from '../../directive/bg-task-form.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { SendProjectFormService } from '../../services/send-project-form.service';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 
 @Component({
   selector: 'app-task-group',
@@ -27,15 +33,18 @@ import { SendProjectFormService } from '../../services/send-project-form.service
     BgTaskFormDirective,
     HttpClientModule,
     CommonModule,
+    RouterLink,
+    RouterModule,
   ],
   templateUrl: './task-group.component.html',
   styleUrl: './task-group.component.scss',
   providers: [ProjectFormService, SendProjectFormService],
 })
 export class TaskGroupComponent {
-  color: ThemePalette = 'accent';
-  mode: ProgressSpinnerMode = 'determinate';
+  public color: ThemePalette = 'accent';
+  public mode: ProgressSpinnerMode = 'determinate';
   value = 10;
+
   constructor(private taskForm: ProjectFormService) {}
 
   public get taskList(): TaskListInterface[] {

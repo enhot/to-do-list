@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AddProjectComponent } from './pages/add-project/add-project.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { loginUserGuard } from './guards/login-user.guard';
+import { CaseTaskComponent } from './pages/view-task/task-group/case-task/case-task/case-task.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,4 +17,5 @@ export const routes: Routes = [
       ),
     canActivate: [loginUserGuard],
   },
+  { path: 'Case', component: CaseTaskComponent },
 ];

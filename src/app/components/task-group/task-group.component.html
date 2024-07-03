@@ -2,7 +2,11 @@
   <h2>Task Group</h2>
   <ul class="task-group__list">
     @for (item of taskList; track $index) {
-    <li [appBgTaskForm]="item.task" class="task-group__item">
+    <li
+      routerLink="/{{ item.task }}"
+      [appBgTaskForm]="item.task"
+      class="task-group__item"
+    >
       <img class="item__img" src="{{ item.icon }}" alt="name" />
       <div class="item__block-info">
         <span>{{ item.task }}</span>

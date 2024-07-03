@@ -25,20 +25,28 @@
       "dateEnd": ""
     },
     {
-      "id": "e9b3",
-      "selectTaskGroup": "",
-      "projectName": "",
-      "description": "",
-      "dateStart": "",
-      "dateEnd": ""
-    },
-    {
       "id": "c427",
       "selectTaskGroup": "Daily Work",
       "projectName": "dkos",
       "description": "wwwww",
       "dateStart": "2024-06-17T21:00:00.000Z",
       "dateEnd": "2024-06-27T21:00:00.000Z"
+    },
+    {
+      "id": "08ad",
+      "selectTaskGroup": "Case",
+      "projectName": "Case project one",
+      "description": "Nedd do smt",
+      "dateStart": "2024-07-02T21:00:00.000Z",
+      "dateEnd": "2024-07-09T21:00:00.000Z"
+    },
+    {
+      "id": "11b1",
+      "selectTaskGroup": "Case",
+      "projectName": "ЫЫФ",
+      "description": "2223123",
+      "dateStart": "",
+      "dateEnd": ""
     }
   ]
 }
