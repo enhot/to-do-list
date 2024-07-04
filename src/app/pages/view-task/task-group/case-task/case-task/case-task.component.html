@@ -1,30 +1,34 @@
-<section>
+<section class="case">
   <div class="case-task__container">
-    <h3>Your cases task</h3>
+    <h2>Your cases task</h2>
     <ul class="case__list">
       @for (item of tasksCase; track $index) {
-
       <li class="case-group__item">
-        <img
-          class="item__img"
-          src="assets/images/let`s-start/small-items/calendar.svg"
-          alt="name"
-        />
-        <div class="item__block-info">
-          <span>{{ item.projectName }}</span>
-          <span>24 task </span>
+        <div class="item__name-block">
+          <span class="name-block__name">{{ item.projectName }}</span>
+          <button class="name-block__close-btn" (click)="deleteTask($index)">
+            +
+          </button>
         </div>
-        <mat-card-content class="item__mat-content">
-          <mat-progress-spinner
-            class="item__spinner"
-            [color]="color"
-            [mode]="mode"
-            [value]="value"
-            diameter="50"
-          >
-          </mat-progress-spinner>
-          <span class="item__span">{{ value }}%</span>
-        </mat-card-content>
+        <div class="item__description-block description">
+          @if(isShow && item.description.length > 39){
+          <p (click)="showDiscription($index)" class="description__text">
+            {{ item.description | slice : 0 : 40 }}...
+          </p>
+          }@else{
+          <p (click)="showDiscription($index)" class="description__text">
+            {{ item.description }}
+          </p>
+          }
+        </div>
+        <div class="item__date-block date">
+          @if (item.dateStart) {
+          <span>Start {{ item.dateStart | date }}</span>
+          <span>End {{ item.dateEnd | date }}</span>
+          }@else {
+          <span>No exact time</span>
+          }
+        </div>
       </li>
 
       }

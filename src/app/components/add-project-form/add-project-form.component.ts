@@ -40,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './add-project-form.component.html',
   styleUrl: './add-project-form.component.scss',
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'ru' },
+    { provide: MAT_DATE_LOCALE, useValue: 'ua' },
     provideNativeDateAdapter(),
     SendProjectFormService,
     ProjectFormService,

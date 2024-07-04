@@ -1,50 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { ThemePalette } from '@angular/material/core';
-import {
-  MatProgressSpinnerModule,
-  ProgressSpinnerMode,
-} from '@angular/material/progress-spinner';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSliderModule } from '@angular/material/slider';
-import { ProjectFormService } from '../../../../../services/project-form-service.service';
-import { TaskListInterface } from '../../../../../interfaces/task-list-interface';
+
 import { SendProjectFormService } from '../../../../../services/send-project-form.service';
-import { filter, map } from 'rxjs';
 import { ServerTaskForm } from '../../../../../interfaces/server-task-form';
+import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-case-task',
   standalone: true,
-  imports: [
-    MatCardModule,
-    MatRadioModule,
-    FormsModule,
-    MatSliderModule,
-    MatProgressSpinnerModule,
-  ],
+  imports: [FormsModule, DatePipe, CommonModule, SlicePipe],
   templateUrl: './case-task.component.html',
   styleUrl: './case-task.component.scss',
   providers: [SendProjectFormService],
 })
 export class CaseTaskComponent implements OnInit {
-  public color: ThemePalette = 'accent';
-  public mode: ProgressSpinnerMode = 'determinate';
-  value: number = 10;
-  public tasksCase: ServerTaskForm[] = []; // Замените на ваш тип данных ServerTaskForm
+  public isShow: boolean = true;
+  public tasksCase: ServerTaskForm[] = [];
   constructor(private getProjectTasks: SendProjectFormService) {}
   ngOnInit(): void {
-    this.getProjectTasks
-      .getTaskForm()
+    this.getProjectTasks.getTaskForm().subscribe((filteredCase) => {
+      if (filteredCase.length > 0) {
+        this.tasksCase = filteredCase.filter(
+          (e) => e.selectTaskGroup === 'Case'
+        );
+      }
+    });
+  }
 
-      .subscribe((filteredCase) => {
-        if (filteredCase.length > 0) {
-          this.tasksCase = filteredCase.filter(
-            (e) => e.selectTaskGroup === 'Case'
-          );
-          console.log(this.tasksCase);
-        }
-      });
+  deleteTask(id: number): void {
+    let taskDel = this.tasksCase[id];
+    if (taskDel.id) {
+      this.getProjectTasks
+        .deleteWordById(taskDel.id)
+        .pipe(tap(() => this.tasksCase.splice(id, 1)))
+        .subscribe();
+    }
+  }
+
+  public showDiscription(id: number): void {
+    let indx = this.tasksCase[id];
+    let target = event?.target;
+    if (target) {
+      this.isShow = !this.isShow;
+      console.log(this.isShow);
+    }
   }
 }
