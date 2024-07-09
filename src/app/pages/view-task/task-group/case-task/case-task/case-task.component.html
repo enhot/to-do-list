@@ -11,15 +11,13 @@
           </button>
         </div>
         <div class="item__description-block description">
-          @if(isShow && item.description.length > 39){
-          <p (click)="showDiscription($index)" class="description__text">
-            {{ item.description | slice : 0 : 40 }}...
+          <p (click)="showDiscription($index)">
+            {{
+              item.description.length > 39 && !isShow[$index]
+                ? (item.description | slice : 0 : 40) + "..."
+                : item.description
+            }}
           </p>
-          }@else{
-          <p (click)="showDiscription($index)" class="description__text">
-            {{ item.description }}
-          </p>
-          }
         </div>
         <div class="item__date-block date">
           @if (item.dateStart) {

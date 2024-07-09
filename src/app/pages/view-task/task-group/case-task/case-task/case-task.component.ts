@@ -15,7 +15,7 @@ import { tap } from 'rxjs';
   providers: [SendProjectFormService],
 })
 export class CaseTaskComponent implements OnInit {
-  public isShow: boolean = true;
+  public isShow: boolean[] = [];
   public tasksCase: ServerTaskForm[] = [];
   constructor(private getProjectTasks: SendProjectFormService) {}
   ngOnInit(): void {
@@ -39,11 +39,7 @@ export class CaseTaskComponent implements OnInit {
   }
 
   public showDiscription(id: number): void {
-    let indx = this.tasksCase[id];
-    let target = event?.target;
-    if (target) {
-      this.isShow = !this.isShow;
-      console.log(this.isShow);
-    }
+    this.isShow[id] = !this.isShow[id];
+    console.log(this.isShow);
   }
 }
