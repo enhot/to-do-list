@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { SendProjectFormService } from '../../../../../services/send-project-form.service';
-import { ServerTaskForm } from '../../../../../interfaces/server-task-form';
 import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
 import { tap } from 'rxjs';
+import { ServerTaskForm } from '../../../../interfaces/server-task-form';
+import { SendProjectFormService } from '../../../../services/send-project-form.service';
 
 @Component({
   selector: 'app-case-task',
