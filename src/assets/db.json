@@ -41,14 +41,6 @@
       "dateEnd": null
     },
     {
-      "id": "8846",
-      "selectTaskGroup": "Case",
-      "projectName": "ssssssadq11111",
-      "description": "111",
-      "dateStart": null,
-      "dateEnd": null
-    },
-    {
       "id": "8af2",
       "selectTaskGroup": "Case",
       "projectName": "name proje",
@@ -63,6 +55,14 @@
       "description": "lera",
       "dateStart": "2024-07-05T21:00:00.000Z",
       "dateEnd": "2024-07-06T21:00:00.000Z"
+    },
+    {
+      "id": "51e6",
+      "selectTaskGroup": "Work",
+      "projectName": "Work for home",
+      "description": "wwwwwwwwwwwwwwwwww",
+      "dateStart": "2024-07-09T21:00:00.000Z",
+      "dateEnd": "2024-07-17T21:00:00.000Z"
     }
   ]
 }

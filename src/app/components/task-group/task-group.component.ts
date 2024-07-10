@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { ThemePalette } from '@angular/material/core';
@@ -20,6 +20,8 @@ import {
   RouterLink,
   RouterModule,
 } from '@angular/router';
+import { count, map } from 'rxjs';
+import { TaskAmountService } from '../../services/task-amount.service';
 
 @Component({
   selector: 'app-task-group',
@@ -38,20 +40,29 @@ import {
   ],
   templateUrl: './task-group.component.html',
   styleUrl: './task-group.component.scss',
-  providers: [ProjectFormService, SendProjectFormService],
+  providers: [SendProjectFormService, TaskAmountService],
 })
-export class TaskGroupComponent {
+export class TaskGroupComponent implements OnInit {
   public color: ThemePalette = 'accent';
   public mode: ProgressSpinnerMode = 'determinate';
-  value = 10;
+  public spinnerValue = 10; // значения для Spinner
+  public taskCount: { [key: string]: number } = {};
+  public isLoading = true; // для отслеживания загрузки
 
-  constructor(private taskForm: ProjectFormService) {}
-
-  public get taskList(): TaskListInterface[] {
-    return this.taskForm.taskList;
+  constructor(
+    private taskForm: ProjectFormService,
+    private getTaskAmount: TaskAmountService
+  ) {}
+  public ngOnInit(): void {
+    this.getTaskAmount.taskCount$.subscribe((taskCount) => {
+      this.taskCount = taskCount;
+      this.isLoading = false;
+      console.log(this.taskCount);
+    });
   }
 
-  trackByIndex(index: number, item: any): number {
-    return index;
+  public get taskList(): TaskListInterface[] {
+    //получаю таск с формы
+    return this.taskForm.taskList;
   }
 }

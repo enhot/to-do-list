@@ -1,7 +1,10 @@
 <div class="view-task__task-group">
   <h2>Task Group</h2>
+  @if (isLoading) {
+  <p class="loading">Loading...</p>
+  }@else {
   <ul class="task-group__list">
-    @for (item of taskList; track $index) {
+    @for (item of taskList; track $index) { @if (taskCount[item.task] > 0) {
     <li
       routerLink="/{{ item.task }}"
       [appBgTaskForm]="item.task"
@@ -10,20 +13,21 @@
       <img class="item__img" src="{{ item.icon }}" alt="name" />
       <div class="item__block-info">
         <span>{{ item.task }}</span>
-        <span>24 task </span>
+        <span>{{ taskCount[item.task] || 0 }} </span>
       </div>
       <mat-card-content class="item__mat-content">
         <mat-progress-spinner
           class="item__spinner"
           [color]="color"
           [mode]="mode"
-          [value]="value"
+          [value]="spinnerValue"
           diameter="50"
         >
         </mat-progress-spinner>
-        <span class="item__span">{{ value }}%</span>
+        <span class="item__span">{{ spinnerValue }}%</span>
       </mat-card-content>
     </li>
-    }
+    } }
   </ul>
+  }
 </div>
