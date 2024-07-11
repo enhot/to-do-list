@@ -5,6 +5,7 @@ import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
 import { tap } from 'rxjs';
 import { ServerTaskForm } from '../../../../interfaces/server-task-form';
 import { SendProjectFormService } from '../../../../services/send-project-form.service';
+import { TaskGroupService } from '../../../../services/task-group.service';
 
 @Component({
   selector: 'app-case-task',
@@ -12,23 +13,33 @@ import { SendProjectFormService } from '../../../../services/send-project-form.s
   imports: [FormsModule, DatePipe, CommonModule, SlicePipe],
   templateUrl: './case-task.component.html',
   styleUrl: './case-task.component.scss',
-  providers: [SendProjectFormService],
+  providers: [SendProjectFormService, TaskGroupService],
 })
 export class CaseTaskComponent implements OnInit {
   public isShow: boolean[] = [];
   public tasksCase: ServerTaskForm[] = [];
-  constructor(private getProjectTasks: SendProjectFormService) {}
+  constructor(
+    private getProjectTasks: SendProjectFormService,
+    private getTaskGroup: TaskGroupService
+  ) {}
   ngOnInit(): void {
-    this.getProjectTasks.getTaskForm().subscribe((filteredCase) => {
+    /* this.getProjectTasks.getTaskForm().subscribe((filteredCase) => {
       if (filteredCase.length > 0) {
         this.tasksCase = filteredCase.filter(
           (e) => e.selectTaskGroup === 'Case'
         );
       }
-    });
+    });*/
+    this.getTaskGroup.getTaskData('Case');
+    this.getTaskGroup.taskName
+      .asObservable()
+      .subscribe({ next: (e) => (this.tasksCase = e) });
   }
 
-  deleteTask(id: number): void {
+  public deleteTask(id: number) {
+    this.getTaskGroup.deleteTask(this.tasksCase, id);
+  }
+  /* deleteTask(id: number): void {
     let taskDel = this.tasksCase[id];
     if (taskDel.id) {
       this.getProjectTasks
@@ -37,7 +48,7 @@ export class CaseTaskComponent implements OnInit {
         .subscribe();
     }
   }
-
+*/
   public showDiscription(id: number): void {
     this.isShow[id] = !this.isShow[id];
     console.log(this.isShow);
