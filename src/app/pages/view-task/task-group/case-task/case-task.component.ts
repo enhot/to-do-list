@@ -23,13 +23,6 @@ export class CaseTaskComponent implements OnInit {
     private getTaskGroup: TaskGroupService
   ) {}
   ngOnInit(): void {
-    /* this.getProjectTasks.getTaskForm().subscribe((filteredCase) => {
-      if (filteredCase.length > 0) {
-        this.tasksCase = filteredCase.filter(
-          (e) => e.selectTaskGroup === 'Case'
-        );
-      }
-    });*/
     this.getTaskGroup.getTaskData('Case');
     this.getTaskGroup.taskName
       .asObservable()
@@ -39,16 +32,7 @@ export class CaseTaskComponent implements OnInit {
   public deleteTask(id: number) {
     this.getTaskGroup.deleteTask(this.tasksCase, id);
   }
-  /* deleteTask(id: number): void {
-    let taskDel = this.tasksCase[id];
-    if (taskDel.id) {
-      this.getProjectTasks
-        .deleteWordById(taskDel.id)
-        .pipe(tap(() => this.tasksCase.splice(id, 1)))
-        .subscribe();
-    }
-  }
-*/
+
   public showDiscription(id: number): void {
     this.isShow[id] = !this.isShow[id];
     console.log(this.isShow);
