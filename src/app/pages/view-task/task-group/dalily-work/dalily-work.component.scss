@@ -1,58 +1,11 @@
 @import "../../../../../assets/styles-and-fonts/another.scss";
-.case {
-  margin-top: -20px;
-}
-.case-task__container {
-}
-.case__list {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  max-height: 400px;
-  height: 100vh;
-  overflow: hidden;
-  overflow-y: auto;
-  margin-bottom: 40px;
-}
-.case-group__item {
-  background-color: #ffcccb;
+@import "../../../../../assets/styles-and-fonts/tasks-style.scss";
+
+.daily-group__item {
+  background-color: #ffeb3b;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
   padding: 10px 20px;
-}
-
-.item__name-block {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.name-block__close-btn {
-  background-color: inherit;
-  border: none;
-  font-size: 26px;
-  font-weight: 700;
-  opacity: 0.7;
-  transform: rotate(45deg);
-}
-.name-block__name {
-}
-
-.description {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  position: relative;
-}
-.description__text {
-  overflow-x: hidden;
-}
-
-.date {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 7px;
 }

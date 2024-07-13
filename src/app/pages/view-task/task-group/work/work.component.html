@@ -1,1 +1,35 @@
-<p>work works!</p>
+<section class="work task">
+  <div class="work-task__container task__container">
+    <h2>Your cases task</h2>
+    <ul class="work__list list__task">
+      @for (item of tasksWork; track $index) {
+      <li class="work-group__item task__item">
+        <div class="item__name-block">
+          <span class="name-block__name">{{ item.projectName }}</span>
+          <button class="name-block__close-btn" (click)="deleteTask($index)">
+            +
+          </button>
+        </div>
+        <div class="item__description-block description">
+          <p (click)="showDiscription($index)">
+            {{
+              item.description.length > 39 && !isShow[$index]
+                ? (item.description | slice : 0 : 40) + "..."
+                : item.description
+            }}
+          </p>
+        </div>
+        <div class="item__date-block date">
+          @if (item.dateStart) {
+          <span>Start {{ item.dateStart | date }}</span>
+          <span>End {{ item.dateEnd | date }}</span>
+          }@else {
+          <span>No exact time</span>
+          }
+        </div>
+      </li>
+
+      }
+    </ul>
+  </div>
+</section>

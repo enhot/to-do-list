@@ -8,7 +8,7 @@ import { RegisterUserService } from '../../services/register-user.service';
 import { GetLoginUserService } from '../../services/get-login-user.service';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-sign-in',
   standalone: true,
   imports: [
     RegisterFromComponent,
@@ -16,15 +16,15 @@ import { GetLoginUserService } from '../../services/get-login-user.service';
     HttpClientModule,
     CommonModule,
   ],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss',
+  templateUrl: './sign-in.component.html',
+  styleUrl: './sign-in.component.scss',
   providers: [
     RegisterUserFormService,
     RegisterUserService,
     GetLoginUserService,
   ],
 })
-export class ProfileComponent {
+export class SignInComponent {
   public showLoginForm: boolean = false; // Добавлено состояние для управления формой входа
 
   public toggleLogin(): void {

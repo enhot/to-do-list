@@ -1,9 +1,9 @@
-<section class="case">
-  <div class="case-task__container">
+<section class="daily task">
+  <div class="daily-task__container task__container">
     <h2>Your cases task</h2>
-    <ul class="case__list">
+    <ul class="daily__list list__task">
       @for (item of tasksDailyWork; track $index) {
-      <li class="case-group__item">
+      <li class="daily-group__item task__item">
         <div class="item__name-block">
           <span class="name-block__name">{{ item.projectName }}</span>
           <button class="name-block__close-btn" (click)="deleteTask($index)">

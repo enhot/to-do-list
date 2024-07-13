@@ -29,14 +29,14 @@ export class AppComponent implements OnInit {
   }
 
   shouldShowHeader(): boolean {
-    return this.currentRoute !== '/' && this.currentRoute !== '/myProfile';
+    return this.currentRoute !== '/' && this.currentRoute !== '/signIn';
   }
 
   shouldShowFooter(): boolean {
     return (
       this.currentRoute !== '/addProject' &&
       this.currentRoute !== '/' &&
-      this.currentRoute !== '/myProfile'
+      this.currentRoute !== '/signIn'
     );
   }
 }

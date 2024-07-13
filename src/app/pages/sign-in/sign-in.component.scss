@@ -1,9 +1,9 @@
 @import "../../../assets/styles-and-fonts/another.scss";
-.profile {
+.sign-in {
   position: relative;
   height: 100vh;
 }
-.profile__container {
+.sign-in__container {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -13,10 +13,9 @@
   left: 0;
   transform: translateY(-50%);
 }
-.profile__title {
+.sign-in__title {
 }
-.profile__register-form {
-}
-.register-form__btn-login {
+
+.sign-in-form__btn-login {
   margin-top: 10px;
 }
