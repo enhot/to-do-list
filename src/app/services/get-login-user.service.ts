@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { RegisterUserService } from './register-user.service';
 
 @Injectable({
@@ -11,15 +10,19 @@ export class GetLoginUserService {
   public isLogInSubject: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
   public isLogIn$ = this.isLogInSubject.asObservable();
-
+  public loginName = new BehaviorSubject<string | null>(null);
   constructor(
     private router: Router,
     private registerUserService: RegisterUserService
-  ) {}
-  private autoSignAut() {
-    localStorage.getItem('isLogin') === 'true';
+  ) {
+    this.autoSignIn();
   }
-
+  private autoSignIn(): void {
+    const getLocalName = localStorage.getItem('loginName');
+    if (getLocalName) {
+      this.loginName.next(getLocalName);
+    }
+  }
   public checkUser(login: string, password: any): void {
     this.registerUserService.getUserData().subscribe((users) => {
       let user = users.find(
@@ -27,12 +30,18 @@ export class GetLoginUserService {
           e.loginFormControl === login && e.passwordFormControl === password
       );
       if (user) {
+        localStorage.setItem('loginName', login);
+        this.loginName.next(login);
         this.setLoggedIn();
       } else {
         console.log('Invalid credentials');
         this.setLoggedOut();
       }
     });
+  }
+
+  public getLoginName() {
+    return this.loginName.asObservable();
   }
 
   public setLoggedIn(): void {

@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { RegisterForm } from '../interfaces/register-form';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegisterUserFormService } from './register-user-form.service';
 
 @Injectable({

@@ -8,7 +8,6 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
 import { GetLoginUserService } from '../../services/get-login-user.service';
 import { RegisterUserService } from '../../services/register-user.service';
 import { RegisterForm } from '../../interfaces/register-form';
@@ -35,9 +34,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   public loginForm!: FormGroup;
   public getUserData: RegisterForm[] = [];
   private subscriptions: Subscription = new Subscription();
-
   constructor(
-    private router: Router,
     private signInService: GetLoginUserService,
     private registerUserServer: RegisterUserService
   ) {
@@ -64,6 +61,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     let password = this.loginForm.get('passwordFormControl')?.value;
     if (this.loginForm.valid) {
       this.signInService.checkUser(login, password);
+      this.signInService.loginName.next(login);
     }
   }
 
