@@ -4,14 +4,12 @@
     <div class="profile__block-info">
       <ul class="block-info__list-profile">
         <li class="list-profile__item">
-          Now you already have 22 added projects for all time.
-        </li>
-        @for (item of tasksInProgres; track $index) {
-        <li class="list-profile__item">
-          Also you have {{ item.length }} taks in progresing.
+          Now you already have {{ count }} added projects for all time.
         </li>
 
-        }
+        <li class="list-profile__item">
+          Also you have {{ tasksInProgres.length }} taks in progresing.
+        </li>
       </ul>
     </div>
     <div class="profile__block-tasks">

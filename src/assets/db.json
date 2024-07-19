@@ -17,28 +17,12 @@
       "dateEnd": "2024-06-27T21:00:00.000Z"
     },
     {
-      "id": "83b8",
-      "selectTaskGroup": "Case",
-      "projectName": "sdasdasdasdas",
-      "description": "dasasasasasasasasasasasasas",
-      "dateStart": null,
-      "dateEnd": null
-    },
-    {
       "id": "8af2",
       "selectTaskGroup": "Case",
       "projectName": "name proje",
       "description": "I do som ssdww wqqq aas  211 123sd s s dads wq qwe21  a e21321 1321d.",
       "dateStart": "",
       "dateEnd": ""
-    },
-    {
-      "id": "9a8f",
-      "selectTaskGroup": "Case",
-      "projectName": "Lera",
-      "description": "lera",
-      "dateStart": "2024-07-05T21:00:00.000Z",
-      "dateEnd": "2024-07-06T21:00:00.000Z"
     },
     {
       "id": "51e6",
@@ -61,6 +45,30 @@
       "selectTaskGroup": "Personal Project",
       "projectName": "2321321",
       "description": "asdasdas",
+      "dateStart": "",
+      "dateEnd": ""
+    },
+    {
+      "id": "a16c",
+      "selectTaskGroup": "Personal Project",
+      "projectName": "My",
+      "description": "none descr",
+      "dateStart": "0110-12-31T21:57:56.000Z",
+      "dateEnd": "0221-12-31T21:57:56.000Z"
+    },
+    {
+      "id": "6301",
+      "selectTaskGroup": "Work",
+      "projectName": "wwww",
+      "description": null,
+      "dateStart": null,
+      "dateEnd": null
+    },
+    {
+      "id": "b2d5",
+      "selectTaskGroup": "Daily Work",
+      "projectName": "ыыыы",
+      "description": "",
       "dateStart": "",
       "dateEnd": ""
     }
