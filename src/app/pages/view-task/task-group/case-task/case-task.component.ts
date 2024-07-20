@@ -18,10 +18,7 @@ import { TaskGroupService } from '../../../../services/task-group.service';
 export class CaseTaskComponent implements OnInit {
   public isShow: boolean[] = [];
   public tasksCase: ServerTaskForm[] = [];
-  constructor(
-    private getProjectTasks: SendProjectFormService,
-    private getTaskGroup: TaskGroupService
-  ) {}
+  constructor(private getTaskGroup: TaskGroupService) {}
   ngOnInit(): void {
     this.getTaskGroup.getTaskData('Case');
     this.getTaskGroup.taskName

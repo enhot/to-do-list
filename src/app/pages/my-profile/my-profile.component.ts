@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { SendProjectFormService } from '../../services/send-project-form.service';
 import { CommonModule } from '@angular/common';
 import { ServerTaskForm } from '../../interfaces/server-task-form';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-my-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './my-profile.component.html',
   styleUrl: './my-profile.component.scss',
   providers: [GetLoginUserService, LoginFormComponent, SendProjectFormService],

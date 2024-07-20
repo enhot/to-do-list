@@ -10,6 +10,7 @@ import { PersonalProjectComponent } from './pages/view-task/task-group/personal-
 import { ShoppingComponent } from './pages/view-task/task-group/shopping/shopping.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { AllTasksComponent } from './pages/all-tasks/all-tasks.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ export const routes: Routes = [
       ),
     canActivate: [loginUserGuard],
   },
+  { path: 'allTasks', component: AllTasksComponent },
   { path: 'Case', component: CaseTaskComponent },
   { path: 'Daily Work', component: DalilyWorkComponent },
   { path: 'Work', component: WorkComponent },
