@@ -1,14 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProjectFormService } from './project-form-service.service';
-import {
-  BehaviorSubject,
-  Observable,
-  Subject,
-  catchError,
-  count,
-  tap,
-} from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { ServerTaskForm } from '../interfaces/server-task-form';
 
 @Injectable({
@@ -19,10 +12,6 @@ export class SendProjectFormService {
   public dataTaskForm$: BehaviorSubject<ServerTaskForm[]> = new BehaviorSubject<
     ServerTaskForm[]
   >([]);
-  public totalTaskCount$: BehaviorSubject<number> = new BehaviorSubject<number>(
-    0
-  ); // Хранит общее количество созданных задач
-  private allTimeTaskCount: number = 0; // Хранит количество задач за все время
 
   constructor(
     private http: HttpClient,
@@ -35,10 +24,6 @@ export class SendProjectFormService {
     this.http
       .post(this.urlTaskForm, this.projectForm.taskGroup.value)
       .pipe(
-        tap(() => {
-          this.allTimeTaskCount++;
-          this.fetchTaskForm(); // Обновляем текущий список задач
-        }),
         catchError((err) => {
           console.log('Send Error', err);
           throw err;

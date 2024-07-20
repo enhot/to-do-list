@@ -17,14 +17,6 @@
       "dateEnd": "2024-06-27T21:00:00.000Z"
     },
     {
-      "id": "8af2",
-      "selectTaskGroup": "Case",
-      "projectName": "name proje",
-      "description": "I do som ssdww wqqq aas  211 123sd s s dads wq qwe21  a e21321 1321d.",
-      "dateStart": "",
-      "dateEnd": ""
-    },
-    {
       "id": "51e6",
       "selectTaskGroup": "Work",
       "projectName": "Work for home",
@@ -65,9 +57,33 @@
       "dateEnd": null
     },
     {
-      "id": "b2d5",
+      "id": "626f",
+      "selectTaskGroup": "Case",
+      "projectName": "xxx",
+      "description": "",
+      "dateStart": "",
+      "dateEnd": ""
+    },
+    {
+      "id": "dea4",
       "selectTaskGroup": "Daily Work",
-      "projectName": "ыыыы",
+      "projectName": "vv",
+      "description": "",
+      "dateStart": "",
+      "dateEnd": ""
+    },
+    {
+      "id": "4d2e",
+      "selectTaskGroup": "Work",
+      "projectName": "22",
+      "description": "",
+      "dateStart": "",
+      "dateEnd": ""
+    },
+    {
+      "id": "8fb2",
+      "selectTaskGroup": "Daily Work",
+      "projectName": "22",
       "description": "",
       "dateStart": "",
       "dateEnd": ""
