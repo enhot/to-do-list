@@ -15,7 +15,7 @@ export class EntertainmentComponent {
   public tasksEntertainment: ServerTaskForm[] = [];
   public isShow: boolean[] = [];
   constructor(private getTaskGroup: TaskGroupService) {
-    getTaskGroup.getTaskData('Daily Work');
+    getTaskGroup.getTaskData('Entertainment');
     getTaskGroup.taskName.asObservable().subscribe((e) => {
       this.tasksEntertainment = e;
     });

@@ -22,6 +22,8 @@ import {
 } from '@angular/router';
 import { count, map } from 'rxjs';
 import { TaskAmountService } from '../../services/task-amount.service';
+import { TaskSpinerService } from '../../services/task-spiner.service';
+import { ServerTaskForm } from '../../interfaces/server-task-form';
 
 @Component({
   selector: 'app-task-group',
@@ -45,13 +47,15 @@ import { TaskAmountService } from '../../services/task-amount.service';
 export class TaskGroupComponent implements OnInit {
   public color: ThemePalette = 'accent';
   public mode: ProgressSpinnerMode = 'determinate';
-  public spinnerValue = 10; // значения для Spinner
+  public spinnerValue = 0; // значения для Spinner
   public taskCount: { [key: string]: number } = {};
   public isLoading = true; // для отслеживания загрузки
 
   constructor(
     private taskForm: ProjectFormService,
-    private getTaskAmount: TaskAmountService
+    private getTaskAmount: TaskAmountService,
+    private taskSpiner: TaskSpinerService,
+    private sendProjectFormService: SendProjectFormService
   ) {}
   public ngOnInit(): void {
     this.getTaskAmount.taskCount$.subscribe((taskCount) => {
@@ -59,10 +63,23 @@ export class TaskGroupComponent implements OnInit {
       this.isLoading = false;
       console.log(this.taskCount);
     });
+    this.calculateSpiner();
   }
 
   public get taskList(): TaskListInterface[] {
     //получаю таск с формы
     return this.taskForm.taskList;
+  }
+  public calculateSpiner(): void {
+    this.sendProjectFormService
+      .getTaskForm()
+      .pipe(
+        map((tasks: ServerTaskForm[]) =>
+          this.taskSpiner.calculateOverallProgress(tasks)
+        )
+      )
+      .subscribe((progress: number) => {
+        this.spinnerValue = progress;
+      });
   }
 }

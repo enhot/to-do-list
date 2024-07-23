@@ -15,7 +15,7 @@ export class PersonalProjectComponent {
   public tasksPersonal: ServerTaskForm[] = [];
   public isShow: boolean[] = [];
   constructor(private getTaskGroup: TaskGroupService) {
-    getTaskGroup.getTaskData('Daily Work');
+    getTaskGroup.getTaskData('Personal Project');
     getTaskGroup.taskName.asObservable().subscribe((e) => {
       this.tasksPersonal = e;
     });

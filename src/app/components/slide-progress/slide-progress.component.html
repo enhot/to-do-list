@@ -1,7 +1,7 @@
 <div class="view-task__in-progress">
   <h2>In Progress</h2>
   <swiper-container init="false">
-    @for (item of inProgressList | async; track $index) {
+    @for (item of inProgressList | async; track i; let i = $index) {
     <swiper-slide>
       <div class="swiper-slide__top">
         <span>{{ item.selectTaskGroup }}</span>
@@ -9,7 +9,10 @@
       </div>
       <div class="swiper-slide__bottom">
         <span>{{ item.projectName }}</span>
-        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+        <mat-progress-bar
+          mode="determinate"
+          [value]="calculateProgress(i)"
+        ></mat-progress-bar>
       </div>
     </swiper-slide>
     }

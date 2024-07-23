@@ -14,7 +14,7 @@ export class WorkComponent {
   public tasksWork: ServerTaskForm[] = [];
   public isShow: boolean[] = [];
   constructor(private getTaskGroup: TaskGroupService) {
-    getTaskGroup.getTaskData('Daily Work');
+    getTaskGroup.getTaskData('Work');
     getTaskGroup.taskName.asObservable().subscribe((e) => {
       this.tasksWork = e;
     });

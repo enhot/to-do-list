@@ -1,108 +1,28 @@
 {
   "taskList": [
     {
-      "id": "1823",
-      "selectTaskGroup": "Entertainment",
-      "projectName": "aaaaaa",
-      "description": "aaaaaaa",
-      "dateStart": "2024-06-01T21:00:00.000Z",
-      "dateEnd": "2024-06-03T21:00:00.000Z"
-    },
-    {
-      "id": "c427",
-      "selectTaskGroup": "Daily Work",
-      "projectName": "dkos",
-      "description": "wwwww",
-      "dateStart": "2024-06-17T21:00:00.000Z",
-      "dateEnd": "2024-06-27T21:00:00.000Z"
-    },
-    {
-      "id": "51e6",
-      "selectTaskGroup": "Work",
-      "projectName": "Work for home",
-      "description": "wwwwwwwwwwwwwwwwww",
-      "dateStart": "2024-07-09T21:00:00.000Z",
-      "dateEnd": "2024-07-17T21:00:00.000Z"
-    },
-    {
-      "id": "48c2",
-      "selectTaskGroup": "Entertainment",
-      "projectName": "Hello",
-      "description": "sssssss",
-      "dateStart": "2024-07-12T21:00:00.000Z",
-      "dateEnd": "2024-07-14T21:00:00.000Z"
-    },
-    {
-      "id": "8ab7",
-      "selectTaskGroup": "Personal Project",
-      "projectName": "2321321",
-      "description": "asdasdas",
-      "dateStart": "",
-      "dateEnd": ""
-    },
-    {
-      "id": "a16c",
-      "selectTaskGroup": "Personal Project",
-      "projectName": "My",
-      "description": "none descr",
-      "dateStart": "0110-12-31T21:57:56.000Z",
-      "dateEnd": "0221-12-31T21:57:56.000Z"
-    },
-    {
-      "id": "6301",
-      "selectTaskGroup": "Work",
-      "projectName": "wwww",
-      "description": null,
-      "dateStart": null,
-      "dateEnd": null
-    },
-    {
-      "id": "626f",
+      "id": "3f78",
       "selectTaskGroup": "Case",
-      "projectName": "xxx",
-      "description": "",
-      "dateStart": "",
-      "dateEnd": ""
+      "projectName": "First Case",
+      "description": "First fo all",
+      "dateStart": "2024-07-21T21:00:00.000Z",
+      "dateEnd": "2024-07-27T21:00:00.000Z"
     },
     {
-      "id": "dea4",
+      "id": "ebdd",
       "selectTaskGroup": "Daily Work",
-      "projectName": "vv",
-      "description": "",
-      "dateStart": "",
-      "dateEnd": ""
-    },
-    {
-      "id": "4d2e",
-      "selectTaskGroup": "Work",
-      "projectName": "22",
-      "description": "",
-      "dateStart": "",
-      "dateEnd": ""
-    },
-    {
-      "id": "8fb2",
-      "selectTaskGroup": "Daily Work",
-      "projectName": "22",
-      "description": "",
-      "dateStart": "",
-      "dateEnd": ""
-    },
-    {
-      "id": "2436",
-      "selectTaskGroup": "Daily Work",
-      "projectName": "231d",
-      "description": "ss",
-      "dateStart": "2024-07-17T21:00:00.000Z",
-      "dateEnd": "2024-07-23T21:00:00.000Z"
-    },
-    {
-      "id": "59a0",
-      "selectTaskGroup": "Case",
-      "projectName": "sdas",
-      "description": "asdas",
+      "projectName": "First Daily",
+      "description": "ssss",
       "dateStart": "2024-07-18T21:00:00.000Z",
-      "dateEnd": "2024-07-20T21:00:00.000Z"
+      "dateEnd": "2024-07-29T21:00:00.000Z"
+    },
+    {
+      "id": "beea",
+      "selectTaskGroup": "Work",
+      "projectName": "first Fork",
+      "description": "aaaaa",
+      "dateStart": "2024-07-20T21:00:00.000Z",
+      "dateEnd": "2024-07-23T21:00:00.000Z"
     }
   ]
 }
