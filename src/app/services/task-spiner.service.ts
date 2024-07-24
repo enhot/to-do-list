@@ -28,4 +28,13 @@ export class TaskSpinerService {
 
     return count > 0 ? totalProgress / count : 0; //Возвращение среднего процента выполнения всех задач
   }
+  public calculateGroupProgress(
+    tasks: ServerTaskForm[],
+    groupName: string
+  ): number {
+    const filteredTasks = tasks.filter(
+      (task) => task.selectTaskGroup === groupName
+    );
+    return this.calculateOverallProgress(filteredTasks);
+  }
 }

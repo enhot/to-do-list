@@ -20,11 +20,13 @@
           class="item__spinner"
           [color]="color"
           [mode]="mode"
-          [value]="spinnerValue"
+          [value]="taskProgress[item.task] || 0"
           diameter="50"
         >
         </mat-progress-spinner>
-        <span class="item__span">{{ spinnerValue }}%</span>
+        <span class="item__span"
+          >{{ taskProgress[item.task] | number : "1.0-0" || 0 }}%</span
+        >
       </mat-card-content>
     </li>
     } }

@@ -12,7 +12,7 @@ import { TaskListInterface } from '../../interfaces/task-list-interface';
 import { ProjectFormService } from '../../services/project-form-service.service';
 import { BgTaskFormDirective } from '../../directive/bg-task-form.directive';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { CommonModule, SlicePipe } from '@angular/common';
 import { SendProjectFormService } from '../../services/send-project-form.service';
 import {
   ActivatedRoute,
@@ -39,6 +39,7 @@ import { ServerTaskForm } from '../../interfaces/server-task-form';
     CommonModule,
     RouterLink,
     RouterModule,
+    SlicePipe,
   ],
   templateUrl: './task-group.component.html',
   styleUrl: './task-group.component.scss',
@@ -49,6 +50,7 @@ export class TaskGroupComponent implements OnInit {
   public mode: ProgressSpinnerMode = 'determinate';
   public spinnerValue = 0; // значения для Spinner
   public taskCount: { [key: string]: number } = {};
+  public taskProgress: { [key: string]: number } = {};
   public isLoading = true; // для отслеживания загрузки
 
   constructor(
@@ -70,16 +72,19 @@ export class TaskGroupComponent implements OnInit {
     //получаю таск с формы
     return this.taskForm.taskList;
   }
+
   public calculateSpiner(): void {
+    //получаем с сервера задачи
     this.sendProjectFormService
       .getTaskForm()
-      .pipe(
-        map((tasks: ServerTaskForm[]) =>
-          this.taskSpiner.calculateOverallProgress(tasks)
-        )
-      )
-      .subscribe((progress: number) => {
-        this.spinnerValue = progress;
+      .subscribe((tasks: ServerTaskForm[]) => {
+        this.taskList.forEach((item) => {
+          //если задач больше чем 0 то выполняем
+          if (this.taskCount[item.task] > 0) {
+            this.taskProgress[item.task] =
+              this.taskSpiner.calculateGroupProgress(tasks, item.task);
+          }
+        });
       });
   }
 }
