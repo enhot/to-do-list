@@ -28,6 +28,8 @@ export class TaskSpinerService {
 
     return count > 0 ? totalProgress / count : 0; //Возвращение среднего процента выполнения всех задач
   }
+
+  //фильтруем чисто на группы
   public calculateGroupProgress(
     tasks: ServerTaskForm[],
     groupName: string

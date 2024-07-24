@@ -47,7 +47,6 @@ export class SlideProgressComponent implements OnInit {
               });
             }
           });
-          console.log('date my', this.getDates); // Лог для проверки добавленных данных
         })
       )
       .subscribe();
@@ -61,7 +60,6 @@ export class SlideProgressComponent implements OnInit {
     const totalTime = endDate - startDate;
     const elapsedTime = currentDate - startDate;
     const progressPercentage = (elapsedTime / totalTime) * 100;
-    console.log(`Task ${index}: ${progressPercentage}%`); // Лог для проверки прогресса каждой задачи
     return progressPercentage > 100 ? 100 : progressPercentage; // Ограничение процента прогресса до 100
   }
 }

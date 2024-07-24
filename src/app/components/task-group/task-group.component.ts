@@ -63,7 +63,6 @@ export class TaskGroupComponent implements OnInit {
     this.getTaskAmount.taskCount$.subscribe((taskCount) => {
       this.taskCount = taskCount;
       this.isLoading = false;
-      console.log(this.taskCount);
     });
     this.calculateSpiner();
   }

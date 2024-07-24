@@ -35,7 +35,6 @@ export class MyProfileComponent implements OnInit, OnDestroy {
       .getLoginName()
       .subscribe((e) => {
         this.loginName = e;
-        console.log('Login', this.loginName);
       });
     this.tasksUnsubscribe.push(loginNameSubscription);
   }

@@ -50,7 +50,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       .subscribe((users) => {
         if (users.length > 0) {
           this.getUserData = users;
-          console.log(this.getUserData);
         }
       });
     this.subscriptions.add(userSubscription);

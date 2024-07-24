@@ -34,7 +34,6 @@ export class GetLoginUserService {
         this.loginName.next(login);
         this.setLoggedIn();
       } else {
-        console.log('Invalid credentials');
         this.setLoggedOut();
       }
     });
@@ -47,7 +46,6 @@ export class GetLoginUserService {
   public setLoggedIn(): void {
     this.isLogInSubject.next(true);
     localStorage.setItem('isLogin', 'true');
-    console.log('AuthService isTrue set to true');
     this.router.navigate(['/viewTask']);
   }
   public setLoggedOut(): void {
