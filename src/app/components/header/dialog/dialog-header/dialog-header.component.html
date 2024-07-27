@@ -1,0 +1,24 @@
+<section class="dialog">
+  <div class="dialog__container">
+    <button class="dialog__close-button" (click)="closeDialog()">×</button>
+
+    @if(dateEndArray.length > 0){
+    <h4 class="dialog__title">
+      You have {{ dateEndArray.length }} pending tasks
+    </h4>
+    <ul class="dialog__list">
+      @for (item of allTaskEnd; track $index) {
+      <li class="dialog__item">
+        <span class="item__name">Task name {{ item.projectName }}</span>
+        <p class="item__group">
+          You can find this task, in {{ item.selectTaskGroup }}
+        </p>
+        <span class="item__luck">Good luck</span>
+      </li>
+      }
+    </ul>
+    }@else {
+    <h4 class="dialog__title">You have no tasks</h4>
+    }
+  </div>
+</section>

@@ -1,0 +1,64 @@
+.dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dialog__container {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  max-height: 300px;
+}
+.dialog__close-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #000000;
+}
+.dialog__title {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Список задач */
+.dialog__list {
+  scrollbar-width: none; /* Скрываем полосу прокрутки */
+  height: 180px;
+  overflow-y: auto; /* Добавьте прокрутку по вертикали */
+  list-style-type: none; /* Уберите стандартные маркеры списка */
+  margin: 0; /* Уберите внешние отступы списка */
+  ::-webkit-scrollbar {
+    width: 0px; /* Устанавливает ширину полосы прокрутки в 0 */
+    background: transparent; /* Делаем фон прозрачным */
+  }
+}
+
+.dialog__item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.item__name {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.item__group {
+  color: #888;
+  margin: 5px 0;
+}
+
+.item__luck {
+  color: #2d87f0; /* Мягкий синий цвет */
+  font-style: italic;
+}

@@ -19,7 +19,11 @@
         [matBadgeHidden]="hidden"
         (click)="toggleBadgeVisibility()"
       >
-        <img src="assets/images/add-project/notification.svg" alt="ring" />
+        <img
+          (click)="openDialog()"
+          src="assets/images/add-project/notification.svg"
+          alt="ring"
+        />
       </mat-icon>
     </div>
   </div>
