@@ -4,6 +4,7 @@ import { ServerTaskForm } from '../../../../interfaces/server-task-form';
 import { SendProjectFormService } from '../../../../services/send-project-form.service';
 import { CommonModule } from '@angular/common';
 import { filter, map } from 'rxjs';
+import { DialogService } from '../../../../services/dialog.service';
 
 @Component({
   selector: 'app-dialog-header',
@@ -15,15 +16,16 @@ import { filter, map } from 'rxjs';
 export class DialogHeaderComponent implements OnInit {
   public allTaskEnd: ServerTaskForm[] = [];
   public dateEndArray: Date[] = [];
-  public dialogRef!: DialogRef<DialogHeaderComponent, any>;
   constructor(
     @Inject(DIALOG_DATA) public dateEnd: Date[],
-    private getProjectFormService: SendProjectFormService
+    private getProjectFormService: SendProjectFormService,
+    private dialogService: DialogService
   ) {}
 
   public ngOnInit(): void {
     let getDateArr = Object.values(this.dateEnd);
-    this.dateEndArray = getDateArr.flat();
+
+    this.dateEndArray = getDateArr.flat(); //вытаскиваем массив из вложенности
     if (this.dateEndArray.length > 0) {
       this.getProjectFormService
         .getTaskForm()
@@ -33,11 +35,6 @@ export class DialogHeaderComponent implements OnInit {
 
             tasks.forEach((task) => {
               let isDateEndPresent = this.dateEndArray.some((e) => {
-                console.log(
-                  'Comparing:',
-                  new Date(e).getTime(),
-                  new Date(task.dateEnd).getTime()
-                );
                 return (
                   new Date(e).getTime() === new Date(task.dateEnd).getTime()
                 );
@@ -54,6 +51,6 @@ export class DialogHeaderComponent implements OnInit {
     }
   }
   public closeDialog() {
-    this.dialogRef.close();
+    this.dialogService.closeDialog();
   }
 }

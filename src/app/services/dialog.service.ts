@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Dialog, DialogModule } from '@angular/cdk/dialog';
+import { Dialog, DialogModule, DialogRef } from '@angular/cdk/dialog';
 import { DialogHeaderComponent } from '../components/header/dialog/dialog-header/dialog-header.component';
 import { SendProjectFormService } from './send-project-form.service';
 import { BehaviorSubject, map } from 'rxjs';
@@ -11,6 +11,7 @@ export class DialogService {
   public allDateEnd: Date[] = [];
   public countNotification: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
+  public dialogRef!: DialogRef<DialogHeaderComponent, any>;
 
   constructor(
     public dialog: Dialog,
@@ -19,7 +20,7 @@ export class DialogService {
     this.countDateEnd();
   }
   openDialog(): void {
-    this.dialog.open(DialogHeaderComponent, {
+    this.dialogRef = this.dialog.open(DialogHeaderComponent, {
       width: '80%',
       height: 'auto',
       data: {
@@ -27,7 +28,11 @@ export class DialogService {
       },
     });
   }
-  public closeDialog(): void {}
+  public closeDialog(): void {
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
+  }
 
   public countDateEnd(): void {
     this.getProjectFormService
