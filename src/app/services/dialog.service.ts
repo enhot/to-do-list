@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Dialog, DialogModule, DialogRef } from '@angular/cdk/dialog';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { DialogHeaderComponent } from '../components/header/dialog/dialog-header/dialog-header.component';
 import { SendProjectFormService } from './send-project-form.service';
 import { BehaviorSubject, map } from 'rxjs';
@@ -50,7 +50,6 @@ export class DialogService {
           });
 
           this.countNotification.next(this.allDateEnd.length);
-          console.log('my date', this.allDateEnd);
         })
       )
       .subscribe();

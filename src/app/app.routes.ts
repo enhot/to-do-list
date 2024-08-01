@@ -11,6 +11,7 @@ import { ShoppingComponent } from './pages/view-task/task-group/shopping/shoppin
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { AllTasksComponent } from './pages/all-tasks/all-tasks.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,4 +33,5 @@ export const routes: Routes = [
   { path: 'Shopping', component: ShoppingComponent },
   { path: 'addProject', component: AddProjectComponent },
   { path: 'myProfile', component: MyProfileComponent },
+  { path: 'todaysTask', component: CalendarComponent },
 ];

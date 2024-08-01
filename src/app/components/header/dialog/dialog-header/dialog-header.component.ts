@@ -1,9 +1,9 @@
-import { DIALOG_DATA, Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component, inject, Inject, OnInit, Output } from '@angular/core';
+import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ServerTaskForm } from '../../../../interfaces/server-task-form';
 import { SendProjectFormService } from '../../../../services/send-project-form.service';
 import { CommonModule } from '@angular/common';
-import { filter, map } from 'rxjs';
+import { map } from 'rxjs';
 import { DialogService } from '../../../../services/dialog.service';
 
 @Component({
@@ -44,7 +44,6 @@ export class DialogHeaderComponent implements OnInit {
                 this.allTaskEnd.push(task);
               }
             });
-            console.log('DIALOG', this.allTaskEnd);
           })
         )
         .subscribe();

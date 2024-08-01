@@ -1,0 +1,29 @@
+@import "../../../assets/styles-and-fonts/another.scss";
+.calendar {
+}
+.calendar__container {
+}
+.calendar__slide {
+}
+.swiper-conteiner {
+}
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0px;
+  background-color: rgb(255, 255, 255);
+  max-width: 70px;
+  width: 100%;
+  border-radius: 12.5%;
+}
+.swiper-slide__in-color {
+  background-color: $buttonColor;
+}
+.slide__month {
+}
+.slide__day {
+}
+.slide__week {
+}
