@@ -7,16 +7,25 @@
         slides-per-view="5"
       >
         @for (item of dateForSlider; track $index) {
-
         <swiper-slide
-          [ngClass]="{ 'swiper-slide__in-color': currentDat === item.day }"
+          [ngClass]="{ 'swiper-slide__in-color': currentDate === item.day }"
           class="swiper-slide"
         >
           <span class="slide__month">{{ item.month }}</span>
           <span class="slide__day">{{ item.day }}</span>
           <span class="slide__week">{{ item.week }} </span>
         </swiper-slide>
+        }
+      </swiper-container>
+    </div>
 
+    <div class="calendar__tasks-block">
+      <swiper-container space-between="10" slides-per-view="5">
+        @for (item of allTasks; track $index) {
+        <swiper-slide>
+          <span>{{ item.selectTaskGroup }}</span>
+          <span>{{ item.projectName }}</span>
+        </swiper-slide>
         }
       </swiper-container>
     </div>
