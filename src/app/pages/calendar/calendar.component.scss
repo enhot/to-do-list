@@ -2,12 +2,12 @@
 .calendar {
 }
 .calendar__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.calendar__slide {
-}
-.swiper-conteiner {
-}
-.swiper-slide {
+
+.date-block__swiper-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,9 +21,42 @@
 .swiper-slide__in-color {
   background-color: $buttonColor;
 }
-.slide__month {
+//All tasks
+.calendar__today-tasks {
 }
-.slide__day {
+.today-tasks__list-task {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 350px;
+  overflow-y: auto; /* Добавьте прокрутку по вертикали */
+  list-style-type: none; /* Уберите стандартные маркеры списка */
+  padding-bottom: 80px; /* Уберите внутренние отступы списка */
+  margin: 0; /* Уберите внешние отступы списка */
+  ::-webkit-scrollbar {
+    width: 0px; /* Устанавливает ширину полосы прокрутки в 0 */
+    background: transparent; /* Делаем фон прозрачным */
+  }
 }
-.slide__week {
+
+/* Скрываем полосу прокрутки в Firefox */
+.today-tasks__list-task {
+  scrollbar-width: none; /* Скрываем полосу прокрутки */
+}
+
+/* Скрываем полосу прокрутки в IE и Edge */
+.today-tasks__list-task {
+  -ms-overflow-style: none; /* Скрываем полосу прокрутки */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.list-task__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
 }

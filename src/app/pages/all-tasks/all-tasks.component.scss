@@ -1,0 +1,43 @@
+@import "../../../assets/styles-and-fonts/another.scss";
+.tasks {
+}
+.tasks__container {
+  display: flex;
+  flex-direction: column;
+}
+.tasks__list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-height: 400px;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-bottom: 40px;
+  ::-webkit-scrollbar {
+    width: 0px; /* Устанавливает ширину полосы прокрутки в 0 */
+    background: transparent; /* Делаем фон прозрачным */
+  }
+  scrollbar-width: none; /* Скрываем полосу прокрутки */
+}
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+
+  padding: 10px 20px;
+}
+.item__block-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item__block-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.itme__date-start {
+}
+.itme__date-end {
+}

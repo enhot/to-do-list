@@ -1,3 +1,20 @@
 <section class="tasks">
-  <div class="tasks__container">sss</div>
+  <div class="tasks__container">
+    <ul class="tasks__list">
+      @for (item of (allTasks$ | async | sortPipe ); track $index) {
+      <li class="list__item" [appBgTaskForm]="item.selectTaskGroup">
+        <div class="item__block-left">
+          <h3 class="item__group">{{ item.selectTaskGroup }}</h3>
+          <span class="item__name">{{ item.projectName }}</span>
+          <p class="item__descript">{{ item.description }}</p>
+        </div>
+
+        <div class="item__block-right">
+          <span class="itme__date-start">{{ item.dateStart | date }}</span>
+          <span class="itme__date-end">{{ item.dateEnd | date }}</span>
+        </div>
+      </li>
+      }
+    </ul>
+  </div>
 </section>

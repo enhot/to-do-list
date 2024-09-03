@@ -1,15 +1,14 @@
 <section class="calendar">
   <div class="calendar__container">
-    <div class="calendar__slide">
+    <div class="calendar__date-block">
       <swiper-container
-        class="swiper-conteiner"
-        space-between="10"
-        slides-per-view="5"
+        class="date-block__swiper-conteiner"
+        space-between="10px"
       >
         @for (item of dateForSlider; track $index) {
         <swiper-slide
           [ngClass]="{ 'swiper-slide__in-color': currentDate === item.day }"
-          class="swiper-slide"
+          class="date-block__swiper-slide"
         >
           <span class="slide__month">{{ item.month }}</span>
           <span class="slide__day">{{ item.day }}</span>
@@ -19,15 +18,15 @@
       </swiper-container>
     </div>
 
-    <div class="calendar__tasks-block">
-      <swiper-container space-between="10" slides-per-view="5">
+    <div class="calendar__today-tasks">
+      <ul class="today-tasks__list-task" space-between="10" slides-per-view="5">
         @for (item of allTasks; track $index) {
-        <swiper-slide>
+        <li [appBgTaskForm]="item.selectTaskGroup" class="list-task__item">
           <span>{{ item.selectTaskGroup }}</span>
           <span>{{ item.projectName }}</span>
-        </swiper-slide>
+        </li>
         }
-      </swiper-container>
+      </ul>
     </div>
   </div>
 </section>

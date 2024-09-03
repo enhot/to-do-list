@@ -22,11 +22,15 @@ export class SendProjectFormService {
 
   public sendTaskForm() {
     this.http
-      .post(this.urlTaskForm, this.projectForm.taskGroup.value)
+      .post<ServerTaskForm>(this.urlTaskForm, this.projectForm.taskGroup.value)
       .pipe(
         catchError((err) => {
           console.log('Send Error', err);
           throw err;
+        }),
+        tap((newTask) => {
+          const currentTasks = this.dataTaskForm$.getValue();
+          this.dataTaskForm$.next([...currentTasks, newTask]);
         })
       )
       .subscribe();

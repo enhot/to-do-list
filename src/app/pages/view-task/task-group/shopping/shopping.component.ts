@@ -15,7 +15,7 @@ export class ShoppingComponent {
   public tasksShopping: ServerTaskForm[] = [];
   public isShow: boolean[] = [];
   constructor(private getTaskGroup: TaskGroupService) {
-    getTaskGroup.getTaskData('Daily Work');
+    getTaskGroup.getTaskData('Shopping');
     getTaskGroup.taskName.asObservable().subscribe((e) => {
       this.tasksShopping = e;
     });

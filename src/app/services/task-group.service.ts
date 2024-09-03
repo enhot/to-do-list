@@ -27,7 +27,7 @@ export class TaskGroupService {
     if (taskDel.id) {
       this.getProjectTasks
         .deleteWordById(taskDel.id)
-        .pipe(tap((e) => task.splice(id, 1)))
+        .pipe(tap(() => task.splice(id, 1)))
         .subscribe();
     }
   }

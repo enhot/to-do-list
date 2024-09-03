@@ -6,13 +6,15 @@ import { SlideProgressComponent } from '../../components/slide-progress/slide-pr
 import { map, Observable } from 'rxjs';
 import { ServerTaskForm } from '../../interfaces/server-task-form';
 import { SendProjectFormService } from '../../services/send-project-form.service';
+import { BgTaskColors } from '../../enum/bg-task';
+import { BgTaskFormDirective } from '../../directive/bg-task-form.directive';
 // register Swiper custom elements
 register();
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports: [CommonModule, SlideProgressComponent],
+  imports: [CommonModule, SlideProgressComponent, BgTaskFormDirective],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -20,7 +22,7 @@ register();
 export class CalendarComponent implements OnInit {
   public dateForSlider: { month: string; day: number; week: string }[] = [];
   public allTasks: ServerTaskForm[] = [];
-  public currentDate: any = new Date().getDate();
+  public currentDate: number = new Date().getDate();
   public todayDate: Date = new Date();
   constructor(
     private calendarDates: CalendareDatesService,
@@ -37,7 +39,6 @@ export class CalendarComponent implements OnInit {
             new Date(task.dateEnd).getDate() >= this.currentDate &&
             new Date(task.dateStart).getDate() <= this.currentDate
         );
-
         if (matchingTasks.length > 0) {
           this.allTasks = matchingTasks;
           console.log(this.allTasks);
